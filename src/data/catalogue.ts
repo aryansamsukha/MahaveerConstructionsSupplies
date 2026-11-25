@@ -6,14 +6,20 @@ import repair from "@/assets/repair.webp.asset.json";
 import roads from "@/assets/roads.webp.asset.json";
 import building from "@/assets/building.webp.asset.json";
 
+const ASSET_CDN_BASE = "https://b197e798-7ef2-44e4-a675-cab091dbf8ba.lovableproject.com";
+
+function resolveAssetUrl(url: string) {
+  return url.startsWith("/") ? `${ASSET_CDN_BASE}${url}` : url;
+}
+
 export const images = {
-  bridge: bridge.url,
-  waterproofing: waterproofing.url,
-  flooring: flooring.url,
-  insulation: insulation.url,
-  repair: repair.url,
-  roads: roads.url,
-  building: building.url,
+  bridge: resolveAssetUrl(bridge.url),
+  waterproofing: resolveAssetUrl(waterproofing.url),
+  flooring: resolveAssetUrl(flooring.url),
+  insulation: resolveAssetUrl(insulation.url),
+  repair: resolveAssetUrl(repair.url),
+  roads: resolveAssetUrl(roads.url),
+  building: resolveAssetUrl(building.url),
 };
 export const contact = {
   phone: "+91 97824 99222",
